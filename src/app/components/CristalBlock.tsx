@@ -15,13 +15,14 @@ interface CristalBlockProps {
   wipAdenCost: number;
   wipICCost: number;
   cristalPerWip: number;
-  cristalLabel: "Dx" | "Cx" | "Bx";
+  cristalLabel: "Dx" | "Cx" | "Bx" | "Ax";
 }
 
 const borderColors = {
   Dx: "blue",
   Cx: "green",
   Bx: "red",
+  Ax: "grey",
 };
 
 export default function CristalBlock({
@@ -41,7 +42,7 @@ export default function CristalBlock({
 }: CristalBlockProps) {
   return (
     <div
-      className="w-580 flex flex-col border-2 border-solid"
+      className="flex w-580 flex-col border-2 border-solid"
       style={{ borderColor: borderColors[cristalLabel] }}
     >
       <span>

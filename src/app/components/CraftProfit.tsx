@@ -8,7 +8,7 @@ const toPercent = (value: number) => {
 
 interface CraftProfitProps {
   borderColor: string;
-  label: "D" | "C" | "B";
+  label: "D" | "C" | "B" | "A";
   soulshotsCraftCost: number;
   soulshotsSellCost: number;
   setSoulshotsSellCost: Dispatch<SetStateAction<number>>;
@@ -37,7 +37,7 @@ export default function CraftProfit({
 }: CraftProfitProps) {
   return (
     <div
-      className="w-580 flex flex-col border-2 border-solid"
+      className="flex w-580 flex-col border-2 border-solid"
       style={{ borderColor: borderColor }}
     >
       <span>
