@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 
 interface CristalBlockProps {
   cristalCost: number;
-  setCristalCost: Dispatch<SetStateAction<number>>;
+  setCristalCost: (value: number) => void;
   armCost: number;
   setArmCost: Dispatch<SetStateAction<number>>;
   wipCost: number;

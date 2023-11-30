@@ -1,7 +1,5 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
-
 const toPercent = (value: number) => {
   return `${(value * 100).toFixed(2)}%`;
 };
@@ -11,11 +9,11 @@ interface CraftProfitProps {
   label: "D" | "C" | "B" | "A";
   soulshotsCraftCost: number;
   soulshotsSellCost: number;
-  setSoulshotsSellCost: Dispatch<SetStateAction<number>>;
+  setSoulshotsSellCost: (value: number) => void;
   soulshotsCraftProfit: number;
   blessedSpiritshotCraftCost: number;
   blessedSpiritshotSellCost: number;
-  setBlessedSpiritshotSellCost: Dispatch<SetStateAction<number>>;
+  setBlessedSpiritshotSellCost: (value: number) => void;
   blessedSpiritshotCraftProfit: number;
   calculateBlessedSpiritshotICProfit: () => number;
   calculateSoulshotsICProfit: () => number;
