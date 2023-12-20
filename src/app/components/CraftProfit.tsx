@@ -6,7 +6,7 @@ const toPercent = (value: number) => {
 
 interface CraftProfitProps {
   borderColor: string;
-  label: "D" | "C" | "B" | "A";
+  label: "D" | "C" | "B" | "A" | "S";
   soulshotsCraftCost: number;
   soulshotsSellCost: number;
   setSoulshotsSellCost: (value: number) => void;

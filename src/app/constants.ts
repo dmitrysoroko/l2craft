@@ -21,4 +21,9 @@ export const initData = {
     spiritshotSell: 227,
     cristal: 4700,
   },
+  sGrade: {
+    soulshotSell: 200,
+    spiritshotSell: 550,
+    cristal: 21500,
+  },
 };

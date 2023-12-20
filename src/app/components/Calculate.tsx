@@ -41,6 +41,12 @@ const SSA_PER_ONE_CRAFT = 300;
 const SPIRIT_ORE_BSSA_CRAFT_COST = 70;
 const BSSA_PER_ONE_CRAFT = 200;
 
+const SOUL_ORE_SSS_CRAFT_COST = 40;
+const SSS_PER_ONE_CRAFT = 350;
+
+const SPIRIT_ORE_BSSS_CRAFT_COST = 50;
+const BSSS_PER_ONE_CRAFT = 200;
+
 const SOUL_ORE_PER_ONE_IC = 100 / 3;
 const SPIRIT_ORE_PER_ONE_IC = 100 / 5;
 
@@ -59,6 +65,10 @@ const BSSB_CRAFTS_PER_ONE_IC =
 const SSA_CRAFTS_PER_ONE_IC = SOUL_ORE_PER_ONE_IC / SOUL_ORE_SSA_CRAFT_COST;
 const BSSA_CRAFTS_PER_ONE_IC =
   SPIRIT_ORE_PER_ONE_IC / SPIRIT_ORE_BSSA_CRAFT_COST;
+
+const SSS_CRAFTS_PER_ONE_IC = SOUL_ORE_PER_ONE_IC / SOUL_ORE_SSS_CRAFT_COST;
+const BSSS_CRAFTS_PER_ONE_IC =
+  SPIRIT_ORE_PER_ONE_IC / SPIRIT_ORE_BSSS_CRAFT_COST;
 
 // const cxCostCalculation = (dxCost: number) => {
 //   return (elven_sword_cost * shop_buy_miltiplier * 2 + dxCost * 54) / 602;
@@ -134,6 +144,13 @@ export default function Calculate() {
     (data.spiritOre * SPIRIT_ORE_BSSA_CRAFT_COST + data.aGrade.cristal * 2) /
     BSSA_PER_ONE_CRAFT;
 
+  const sssCraftCost =
+    (data.soulOre * SOUL_ORE_SSS_CRAFT_COST + data.sGrade.cristal) /
+    SSS_PER_ONE_CRAFT;
+  const bsssCraftCost =
+    (data.spiritOre * SPIRIT_ORE_BSSS_CRAFT_COST + data.sGrade.cristal * 2) /
+    BSSS_PER_ONE_CRAFT;
+
   const ssdCraftProfit =
     (data.dGrade.soulshotSell - ssdCraftCost) / ssdCraftCost;
   const bssdCraftProfit =
@@ -150,6 +167,10 @@ export default function Calculate() {
     (data.aGrade.soulshotSell - ssaCraftCost) / ssaCraftCost;
   const bssaCraftProfit =
     (data.aGrade.spiritshotSell - bssaCraftCost) / bssaCraftCost;
+  const sssCraftProfit =
+    (data.sGrade.soulshotSell - sssCraftCost) / sssCraftCost;
+  const bsssCraftProfit =
+    (data.sGrade.spiritshotSell - bsssCraftCost) / bsssCraftCost;
 
   const calculateSSDICProfit = () => {
     return (
@@ -212,6 +233,22 @@ export default function Calculate() {
       (data.aGrade.spiritshotSell - bssaCraftCost) *
       BSSA_PER_ONE_CRAFT *
       BSSA_CRAFTS_PER_ONE_IC
+    );
+  };
+
+  const calculateSSSICProfit = () => {
+    return (
+      (data.sGrade.soulshotSell - sssCraftCost) *
+      SSS_PER_ONE_CRAFT *
+      SSS_CRAFTS_PER_ONE_IC
+    );
+  };
+
+  const calculateBSSSICProfit = () => {
+    return (
+      (data.sGrade.spiritshotSell - bsssCraftCost) *
+      BSSS_PER_ONE_CRAFT *
+      BSSS_CRAFTS_PER_ONE_IC
     );
   };
 
@@ -378,6 +415,42 @@ export default function Calculate() {
             soulshotsCraftCost={ssaCraftCost}
             soulshotsCraftProfit={ssaCraftProfit}
             soulshotsSellCost={data.aGrade.soulshotSell}
+          />
+        </GradeBlock>
+
+        <GradeBlock borderColor="orange">
+          <CristalBlock
+            armAdenCost={1500}
+            armCost={armD}
+            armICCost={5}
+            cristalCost={data.sGrade.cristal}
+            cristalLabel={"Sx"}
+            cristalPerArm={11}
+            cristalPerWip={90}
+            setArmCost={setArmD}
+            setCristalCost={value => updateData(value, "sGrade", "cristal")}
+            setWipCost={setWipD}
+            wipAdenCost={7500}
+            wipCost={wipD}
+            wipICCost={10}
+          />
+          <CraftProfit
+            blessedSpiritshotCraftCost={bsssCraftCost}
+            blessedSpiritshotCraftProfit={bsssCraftProfit}
+            blessedSpiritshotSellCost={data.sGrade.spiritshotSell}
+            borderColor="orange"
+            calculateBlessedSpiritshotICProfit={calculateBSSSICProfit}
+            calculateSoulshotsICProfit={calculateSSSICProfit}
+            label={"S"}
+            setBlessedSpiritshotSellCost={value =>
+              updateData(value, "sGrade", "spiritshotSell")
+            }
+            setSoulshotsSellCost={value =>
+              updateData(value, "sGrade", "soulshotSell")
+            }
+            soulshotsCraftCost={sssCraftCost}
+            soulshotsCraftProfit={sssCraftProfit}
+            soulshotsSellCost={data.sGrade.soulshotSell}
           />
         </GradeBlock>
       </div>

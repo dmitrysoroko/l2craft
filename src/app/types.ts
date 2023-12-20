@@ -21,4 +21,9 @@ export interface Data {
     spiritshotSell: number;
     cristal: number;
   };
+  sGrade: {
+    soulshotSell: number;
+    spiritshotSell: number;
+    cristal: number;
+  };
 }

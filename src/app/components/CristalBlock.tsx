@@ -15,7 +15,7 @@ interface CristalBlockProps {
   wipAdenCost: number;
   wipICCost: number;
   cristalPerWip: number;
-  cristalLabel: "Dx" | "Cx" | "Bx" | "Ax";
+  cristalLabel: "Dx" | "Cx" | "Bx" | "Ax" | "Sx";
 }
 
 const borderColors = {
@@ -23,6 +23,7 @@ const borderColors = {
   Cx: "green",
   Bx: "red",
   Ax: "grey",
+  Sx: "orange",
 };
 
 export default function CristalBlock({
