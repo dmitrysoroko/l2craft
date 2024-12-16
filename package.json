@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma@5.16.2 generate && next build",
     "start": "next start",
     "lint": "next lint",
     "prittier": "prettier --write .",
-    "eslint": "eslint --fix"
+    "eslint": "eslint --fix",
+    "prisma": "prisma generate"
   },
   "dependencies": {
     "@nivo/bar": "^0.87.0",
