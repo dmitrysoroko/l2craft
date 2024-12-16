@@ -58,4 +58,4 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 USER nextjs
 
 
-CMD ["node", "server.js"]
+CMD ["npm", "run", "start"]
