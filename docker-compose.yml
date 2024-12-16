@@ -1,10 +1,11 @@
 version: '3'
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: docker-next
+  frontend-l2craft:
+    build: .
+    container_name: frontend-l2craft
+    environment:
+      - NODE_ENV=production
+    restart: always
     ports:
       - '3000:3000'
