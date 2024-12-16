@@ -23,6 +23,8 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
     // Possible errors
     "no-console": "warn",
     // Best practices
@@ -51,7 +53,7 @@ module.exports = {
     // Imports
     "import/prefer-default-export": "off",
     "sort-imports": [
-      "error",
+      "warn",
       {
         ignoreCase: true,
         ignoreDeclarationSort: true,
@@ -72,7 +74,7 @@ module.exports = {
       },
     ],
     "react/jsx-sort-props": [
-      "error",
+      "warn",
       {
         ignoreCase: true,
       },

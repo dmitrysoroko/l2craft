@@ -1,0 +1,33 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model stat_item {
+  id                        Int      @id @default(autoincrement())
+  type                      Int
+  name                      String
+  price                     Int
+  owner                     String?
+  time                      DateTime @db.Timestamptz(6)
+  count                     Int
+  type_stat_item_typeTotype type     @relation("stat_item_typeTotype", fields: [type], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "type_fk")
+}
+
+model type {
+  id                             Int         @id @default(autoincrement())
+  name                           String
+  stat_item_stat_item_typeTotype stat_item[] @relation("stat_item_typeTotype")
+}
+
+model search_item {
+  name        String
+  search_text String
+  id          Int     @id @default(autoincrement())
+  is_active   Boolean
+}
