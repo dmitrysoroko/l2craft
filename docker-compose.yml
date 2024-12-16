@@ -6,6 +6,7 @@ services:
     container_name: frontend-l2craft
     environment:
       - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:1234@192.168.50.247:5432/example
     restart: always
     ports:
       - '3000:3000'
